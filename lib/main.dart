@@ -64,7 +64,8 @@ class _StudioHomePageState extends State<StudioHomePage> {
     });
 
     try {
-      Uint8Image? imageBytes = await _screenshotController.capture(
+      // تم تصحيح النوع إلى Uint8List بدلاً من Uint8Image
+      Uint8List? imageBytes = await _screenshotController.capture(
         pixelRatio: 3.0,
         delay: const Duration(milliseconds: 100),
       );
@@ -293,7 +294,7 @@ class CharacterPainter extends CustomPainter {
 
     // الفم
     Paint mouthPaint = Paint()
-      ..color = Colors.black89
+      ..color = Colors.black54 // تم تصحيحها لـ black54 المتوفرة
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3;
 
@@ -310,7 +311,7 @@ class CharacterPainter extends CustomPainter {
     } else if (mouthStyle == 'غضب') {
       canvas.drawLine(Offset(cx - 8, cy - 50), Offset(cx + 8, cy - 50), mouthPaint);
     } else if (mouthStyle == 'دهشة') {
-      paint.color = Colors.black89;
+      paint.color = Colors.black54;
       canvas.drawCircle(Offset(cx, cy - 48), 6, paint);
     } else {
       canvas.drawLine(Offset(cx - 8, cy - 48), Offset(cx + 8, cy - 48), mouthPaint);
